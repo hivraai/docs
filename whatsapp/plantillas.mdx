@@ -1,0 +1,146 @@
+---
+title: "Plantillas de WhatsApp"
+description: "Crea y gestiona plantillas de mensajes para campañas, recordatorios y notificaciones masivas."
+---
+
+## ¿Qué son las plantillas de WhatsApp?
+
+Las plantillas son mensajes pre-aprobados por Meta (WhatsApp) que te permiten iniciar conversaciones con clientes que no han escrito primero, o retomar conversaciones inactivas por más de 24 horas. Son esenciales para enviar notificaciones de cobro, recordatorios de citas y campañas de marketing.
+
+<Warning>
+  WhatsApp tiene políticas estrictas sobre el contenido de las plantillas. Los mensajes que promuevan alcohol, armas, contenido adulto o prácticas engañosas no serán aprobados. Las plantillas deben ser aprobadas por Meta antes de poder usarse.
+</Warning>
+
+## Tipos de plantillas
+
+### Plantillas transaccionales
+Se usan para notificaciones directamente relacionadas con una acción del cliente. Tienen la aprobación más rápida (usualmente en horas).
+
+- Confirmación de pago recibido
+- Recordatorio de cita próxima
+- Notificación de envío de pedido
+- Alerta de renovación de membresía
+
+### Plantillas de marketing
+Para promociones, ofertas especiales o comunicaciones de campaña. Requieren que el cliente haya optado por recibir mensajes de marketing.
+
+- Promoción de temporada
+- Lanzamiento de nuevo servicio
+- Reactivación de clientes inactivos
+- Campaña de seguimiento de prospectos
+
+### Plantillas de autenticación
+Para códigos de verificación y acceso seguro. Uso más técnico, menos frecuente para negocios pequeños.
+
+## Crear una plantilla
+
+<Steps>
+  <Step title="Acceder al gestor de plantillas">
+    Ve a **Configuración → WhatsApp → Plantillas** y haz clic en **Nueva plantilla**.
+  </Step>
+  <Step title="Seleccionar categoría">
+    Elige entre **Marketing**, **Utilidad** (transaccional) o **Autenticación**. La categoría afecta la velocidad de aprobación y el costo por mensaje enviado.
+  </Step>
+  <Step title="Redactar el mensaje">
+    Escribe el contenido de la plantilla. Puedes usar variables dinámicas con el formato `{{1}}`, `{{2}}`, etc. Estas variables se reemplazan con datos reales al enviar el mensaje.
+
+    Ejemplo:
+    ```
+    Hola {{1}}, te confirmamos tu pago de L {{2}} por {{3}}.
+    Tu número de referencia es {{4}}.
+    ¡Gracias por tu preferencia! 🙌
+    ```
+  </Step>
+  <Step title="Agregar encabezado (opcional)">
+    Puedes agregar un encabezado de texto, imagen o documento. Los encabezados con imagen tienen mayor tasa de apertura.
+  </Step>
+  <Step title="Agregar botones (opcional)">
+    Incluye botones de llamada a la acción como "Ver factura", "Confirmar cita" o "Llamar ahora". Máximo 3 botones por plantilla.
+  </Step>
+  <Step title="Enviar para aprobación">
+    Una vez lista, haz clic en **Enviar a Meta para aprobación**. Recibirás una notificación cuando sea aprobada o rechazada, generalmente en 24 horas.
+  </Step>
+</Steps>
+
+## Variables disponibles en plantillas
+
+Cuando usas plantillas en HIVRA, el sistema puede rellenar automáticamente las siguientes variables:
+
+| Variable | Descripción | Ejemplo |
+|----------|-------------|---------|
+| Nombre del cliente | Nombre registrado en el contacto | "María García" |
+| Monto del cobro | Monto en la moneda del tenant | "L 2,500" |
+| Nombre del producto | Nombre del servicio o producto comprado | "Paquete 10 clases" |
+| Fecha de cita | Fecha y hora de la reserva | "Martes 25 de junio, 9:00 AM" |
+| Nombre del negocio | Tu nombre de empresa | "MOUV Studio" |
+| Enlace de pago | URL del cobro PixelPay | `https://pay.hivra.ai/...` |
+
+## Usar plantillas en campañas
+
+Para enviar una plantilla a múltiples clientes a la vez, usa la función de **Campañas** en HIVRA:
+
+<Steps>
+  <Step title="Crear una campaña">
+    Ve a **Campañas → Nueva campaña**. Selecciona la plantilla que deseas usar (debe estar aprobada por Meta).
+  </Step>
+  <Step title="Definir el segmento">
+    Elige a qué clientes enviarás el mensaje:
+    - Todos los contactos
+    - Clientes con una etiqueta específica
+    - Clientes que no han comprado en X días
+    - Clientes de una sucursal o ubicación específica
+  </Step>
+  <Step title="Programar el envío">
+    Puedes enviar la campaña inmediatamente o programarla para una fecha y hora específica. Respeta las horas de silencio para no enviar mensajes en horarios inapropiados.
+  </Step>
+  <Step title="Revisar y confirmar">
+    Verás un resumen con la cantidad de destinatarios y el texto final del mensaje antes de confirmar. Revisa cuidadosamente antes de enviar.
+  </Step>
+</Steps>
+
+<Note>
+  Los mensajes de campaña se envían con la plantilla pre-aprobada por Meta. Modificar el texto de la plantilla requiere volver a enviarla para aprobación. No intentes evadir este proceso — WhatsApp puede bloquear tu número de Business si detecta mensajes que no corresponden a la plantilla aprobada.
+</Note>
+
+## Ejemplos de plantillas útiles
+
+### Recordatorio de pago pendiente
+
+```
+Hola {{1}} 👋
+
+Tu enlace de pago por {{2}} ({{3}}) está a punto de expirar.
+
+Para completar tu compra, usa este enlace:
+{{4}}
+
+¿Necesitas ayuda? Responde este mensaje y te atendemos de inmediato.
+```
+
+### Recordatorio de cita
+
+```
+¡Hola {{1}}! 🗓️
+
+Te recordamos tu clase de {{2}} mañana {{3}} a las {{4}} en {{5}}.
+
+¿Confirmas tu asistencia?
+✅ Sí, ahí estaré
+❌ Necesito cancelar
+```
+
+### Renovación de membresía
+
+```
+Hola {{1}}, tu membresía en {{2}} vence el {{3}}.
+
+¡Renueva hoy y no pierdas tus beneficios!
+
+👉 {{4}}
+
+¿Tienes preguntas? Escríbenos aquí mismo 💬
+```
+
+<Tip>
+  Las plantillas con emojis tienen entre 15% y 25% más tasa de respuesta que las plantillas de texto plano. Úsalos con moderación y de forma coherente con el tono de tu marca.
+</Tip>

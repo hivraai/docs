@@ -1,0 +1,84 @@
+---
+title: "Integración con YaloCobro"
+description: "Conecta YaloCobro para emitir facturas fiscales y gestionar la facturación electrónica desde HIVRA."
+---
+
+## ¿Qué es YaloCobro?
+
+YaloCobro es la plataforma de facturación electrónica más usada en Honduras, certificada por el SAR (Servicio de Administración de Rentas). Permite a los negocios emitir facturas fiscales válidas ante el fisco hondureño directamente desde sus sistemas de gestión.
+
+La integración de HIVRA con YaloCobro permite que cada cobro confirmado en HIVRA genere automáticamente una factura fiscal, cumpliendo con las obligaciones tributarias sin trabajo manual.
+
+## ¿Quién necesita esta integración?
+
+Esta integración es relevante si tu negocio en Honduras:
+
+- Está obligado a emitir facturas electrónicas según las disposiciones del SAR
+- Quiere ofrecer factura fiscal a sus clientes automáticamente después de cada pago
+- Necesita llevar un registro fiscal de ventas sincronizado con su facturación en HIVRA
+
+<Note>
+  Las obligaciones de facturación electrónica en Honduras varían según el tipo de negocio, tamaño y régimen fiscal. Consulta con tu contador para determinar si esta integración es requerida para tu caso específico.
+</Note>
+
+## Conectar YaloCobro
+
+<Steps>
+  <Step title="Obtener credenciales de API de YaloCobro">
+    Desde tu panel de YaloCobro, ve a **Configuración → API** y genera un API Token para la integración. También necesitarás tu **RUC (Registro Único de Contribuyentes)** y el **número de CAI** activo.
+  </Step>
+  <Step title="Conectar en HIVRA">
+    Ve a **Integraciones → YaloCobro** y haz clic en **Conectar**. Ingresa tu API Token, RUC y configura el establecimiento emisor (si tienes múltiples puntos de venta).
+  </Step>
+  <Step title="Configurar el tipo de documento">
+    Selecciona el tipo de documento fiscal predeterminado que se emitirá:
+    - **Factura** (01): para ventas con datos del comprador (nombre, RTN)
+    - **Boleta** (04): para ventas al consumidor final sin datos específicos
+  </Step>
+  <Step title="Verificar la conexión">
+    HIVRA emitirá un documento de prueba en modo sandbox de YaloCobro para verificar que todo está correctamente configurado.
+  </Step>
+</Steps>
+
+## Flujo de facturación automática
+
+Cuando un cliente paga en HIVRA con YaloCobro conectado:
+
+1. HIVRA confirma el pago con PixelPay o transferencia.
+2. El sistema consulta si el contacto tiene RTN registrado en su perfil.
+3. Si tiene RTN → emite una **factura** a nombre del cliente con sus datos fiscales.
+4. Si no tiene RTN → emite una **boleta** al consumidor final.
+5. El documento fiscal generado se envía al cliente por WhatsApp (PDF) y se guarda en su historial.
+6. El número de factura y el CAI quedan registrados en la orden de HIVRA.
+
+## Solicitar datos fiscales del cliente
+
+El agente IA puede solicitar automáticamente los datos fiscales del cliente antes de procesar el pago:
+
+- Activa esto en **Integraciones → YaloCobro → Solicitar datos antes del pago**.
+- Cuando está activo, el agente preguntará: "¿Necesitas factura fiscal? Si es así, proporciónanos tu nombre y RTN."
+- El RTN y nombre fiscal quedan guardados en el perfil del contacto para futuras transacciones.
+
+## Correlativo de facturas
+
+YaloCobro maneja automáticamente el correlativo de facturas dentro de cada rango autorizado (CAI). HIVRA monitorea el uso del CAI actual y te alertará cuando queden menos de 50 documentos disponibles, para que solicites un nuevo CAI con anticipación.
+
+<Warning>
+  Un CAI vencido o agotado impide emitir facturas hasta que obtengas uno nuevo del SAR. Procesa la solicitud con al menos 2 semanas de anticipación para evitar interrupciones en tu facturación.
+</Warning>
+
+## Anulación de facturas
+
+Si necesitas anular una factura ya emitida:
+
+1. Ve a **Reportes → Facturación** y localiza la factura a anular.
+2. Haz clic en **Anular** e ingresa el motivo de anulación.
+3. HIVRA enviará la anulación a YaloCobro automáticamente.
+
+<Note>
+  Las anulaciones deben procesarse dentro del mismo período fiscal (mismo mes). Facturas de meses anteriores requieren una nota de crédito en lugar de anulación directa. Consulta con tu contador sobre el procedimiento correcto para cada caso.
+</Note>
+
+<Tip>
+  Configura la emisión automática de boletas (sin datos fiscales) como comportamiento predeterminado y la factura solo cuando el cliente la solicite explícitamente. Esto agiliza el proceso para la mayoría de los clientes que no necesitan factura.
+</Tip>

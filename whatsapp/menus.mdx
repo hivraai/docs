@@ -1,0 +1,118 @@
+---
+title: "Menús de WhatsApp"
+description: "Crea menús interactivos de respuesta rápida para guiar a tus clientes hacia la información correcta."
+---
+
+## ¿Qué son los menús de WhatsApp?
+
+Los menús son mensajes de WhatsApp que presentan opciones numeradas o con botones para que el cliente elija. En lugar de escribir texto libre, el cliente simplemente responde con un número o toca un botón. Esto reduce malentendidos, acelera las conversaciones y ayuda al agente IA a identificar la intención del cliente con mayor precisión.
+
+Ejemplo de menú de bienvenida:
+
+```
+¡Hola! 👋 Soy Sofía de MOUV Studio. ¿En qué puedo ayudarte hoy?
+
+1️⃣ Ver clases disponibles
+2️⃣ Precios y paquetes
+3️⃣ Reservar una clase
+4️⃣ Información de membresías
+5️⃣ Hablar con un asesor
+```
+
+## Tipos de menú disponibles
+
+| Tipo | Descripción | Mejor uso |
+|------|-------------|-----------|
+| **Bienvenida** | Se envía al primer mensaje de un cliente nuevo | Menú principal de opciones |
+| **Submenú** | Se activa cuando el cliente elige una opción específica | Detallar categorías o productos |
+| **Regreso** | Opción para volver al menú anterior | Navegación fluida |
+| **Fin de conversación** | Confirma que la consulta fue resuelta | Cierre de conversación |
+
+## Crear un menú
+
+<Steps>
+  <Step title="Acceder a la configuración de menús">
+    Ve a **Configuración → Agente → Menús** y haz clic en **Nuevo menú**.
+  </Step>
+  <Step title="Definir el mensaje del menú">
+    Escribe el texto de bienvenida o contexto que aparecerá antes de las opciones. Puedes usar emojis para hacerlo más visual y atractivo.
+  </Step>
+  <Step title="Agregar opciones">
+    Para cada opción define:
+    - **Número o etiqueta**: cómo el cliente la seleccionará (por ejemplo, "1" o "Precios")
+    - **Texto de la opción**: lo que verá el cliente
+    - **Acción**: qué hace el sistema cuando se elige esta opción
+  </Step>
+  <Step title="Definir acciones por opción">
+    Cada opción puede tener una de las siguientes acciones:
+    - Enviar un mensaje de texto específico
+    - Abrir un submenú
+    - Iniciar el flujo de cobro
+    - Escalar a un operador humano
+    - Enviar la dirección de tu negocio
+    - Compartir un enlace (sitio web, redes sociales)
+  </Step>
+  <Step title="Configurar el disparador">
+    Define cuándo se activa este menú: al primer mensaje, cuando el agente no entiende una consulta, o manualmente por el operador.
+  </Step>
+  <Step title="Guardar y probar">
+    Guarda el menú y usa el botón **Probar** para enviarte el menú a tu propio WhatsApp y verificar que todo funciona correctamente.
+  </Step>
+</Steps>
+
+## Buenas prácticas para menús
+
+<AccordionGroup>
+  <Accordion title="Máximo 5 opciones por menú" icon="list-ol">
+    Los menús con más de 5 opciones confunden a los clientes. Si tienes muchas categorías, usa submenús. Por ejemplo: la opción "Servicios" abre un submenú con los servicios específicos.
+  </Accordion>
+  <Accordion title="Opciones claras y concisas" icon="text">
+    Cada opción debe ser auto-explicativa en 3 a 5 palabras. Evita tecnicismos o abreviaciones que el cliente pueda no entender. "Ver precios" es mejor que "Cotizaciones de servicios terapéuticos".
+  </Accordion>
+  <Accordion title="Siempre incluir opción de asesor humano" icon="user">
+    Aunque tu agente IA sea muy capaz, algunos clientes prefieren hablar con una persona. Siempre incluye una opción para escalar al operador. Esto genera confianza y evita frustración.
+  </Accordion>
+  <Accordion title="Mantener los menús actualizados" icon="refresh">
+    Si cambias tus productos, horarios o servicios, actualiza los menús inmediatamente. Un menú desactualizado que menciona un precio incorrecto puede dañar tu imagen y generar reclamos.
+  </Accordion>
+</AccordionGroup>
+
+## Menús con botones (WhatsApp Interactive)
+
+Para una experiencia más visual, puedes crear menús con botones táctiles en lugar de opciones numeradas. Los botones aparecen como chips debajo del mensaje y el cliente los toca en lugar de escribir.
+
+<Note>
+  Los botones de WhatsApp tienen un límite de 3 opciones por mensaje. Para más opciones, usa la lista interactiva o el menú numerado tradicional. Los botones tienen mayor tasa de respuesta que las opciones numeradas en dispositivos móviles.
+</Note>
+
+## Menú de ejemplo: Estudio de fitness
+
+```
+¡Bienvenida a MOUV Studio! 💪
+
+¿Cómo puedo ayudarte?
+
+1️⃣ Clases y horarios
+2️⃣ Precios y paquetes
+3️⃣ Reservar una clase
+4️⃣ Mi cuenta y membresía
+5️⃣ Hablar con Valentina (asesora)
+```
+
+Al seleccionar "2️⃣ Precios y paquetes", un submenú podría mostrar:
+
+```
+Nuestros paquetes disponibles 🏋️
+
+1️⃣ Clase suelta — L 250
+2️⃣ Pack 5 clases — L 1,100
+3️⃣ Pack 10 clases — L 2,000
+4️⃣ Membresía mensual ilimitada — L 1,800
+5️⃣ ← Volver al menú principal
+
+¿Cuál te interesa? 😊
+```
+
+<Tip>
+  Analiza qué opciones elige tu audiencia con más frecuencia. Si el 70% de tus clientes siempre elige "Precios", pon esa opción como número 1 para reducir el tiempo que tardan en llegar a la información que buscan.
+</Tip>

@@ -1,0 +1,111 @@
+---
+title: "Reporte de Sincronización Zoho"
+description: "Monitorea el estado de sincronización de todas tus ventas con Zoho Books desde un panel centralizado."
+---
+
+## ¿Para qué sirve este reporte?
+
+El reporte de Sincronización Zoho te muestra el estado de cada venta registrada en HIVRA respecto a su reflejo en Zoho Books. Es la herramienta principal para verificar que tu contabilidad está completa y para resolver ventas que no se sincronizaron automáticamente.
+
+## Acceder al reporte
+
+Ve a **Reportes → Sincronización Zoho** en el menú lateral. Por defecto, el reporte muestra las ventas de los últimos 30 días.
+
+## Columnas del reporte
+
+| Columna | Descripción |
+|---------|-------------|
+| **Fecha** | Fecha en que se confirmó el pago |
+| **Cliente** | Nombre del contacto que realizó la compra |
+| **Producto** | Servicio o producto comprado |
+| **Monto** | Monto pagado (en la moneda configurada del tenant) |
+| **Origen** | Fuente de la venta: 🤖 HIVRA, 📋 MindBody, Shopify, Zoho Books |
+| **Estado** | SINCRONIZADO, PENDIENTE, ERROR o DUPLICADO |
+| **Factura Zoho** | Número de factura en Zoho Books (si está sincronizada) |
+| **Acciones** | Botones para ver la factura, sincronizar manualmente o reintentarlo |
+
+## Estados de sincronización
+
+### ✅ SINCRONIZADO
+La venta tiene una factura en Zoho Books con el pago registrado. No requiere ninguna acción.
+
+### ⏳ PENDIENTE
+La venta existe en HIVRA pero no en Zoho Books. Esto ocurre cuando:
+- La integración con Zoho Books aún no estaba activa cuando se procesó la venta
+- Zoho Books estaba temporalmente desconectado
+- La venta fue registrada por la sincronización de MindBody y el push a Zoho aún no ocurrió
+
+**Acción**: haz clic en **Sincronizar a Zoho** en la columna de acciones.
+
+### ❌ ERROR
+Se intentó crear la factura pero falló. Los errores más comunes son:
+- Credenciales de Zoho Books expiradas
+- El cliente no tiene correo electrónico (requerido por Zoho)
+- El impuesto configurado no existe en Zoho
+- La cuenta de pago configurada no existe
+
+**Acción**: haz clic en el ícono de error para ver el detalle del mensaje. Corrige el problema (por ejemplo, reconecta Zoho) y luego usa **Reintentar**.
+
+### ⊙ DUPLICADO
+Ya existe una factura en Zoho Books para esta transacción. Esto es informativo, no un problema.
+
+## Filtros disponibles
+
+- **Rango de fechas**: semana actual, mes actual, mes anterior, o rango personalizado.
+- **Estado**: filtrar por PENDIENTE, ERROR, SINCRONIZADO o DUPLICADO.
+- **Origen**: ver solo ventas de MindBody, solo de HIVRA, solo de Shopify, etc.
+- **Cliente**: buscar por nombre o número de teléfono.
+- **Monto**: filtrar por rango de monto (útil para encontrar transacciones específicas).
+
+## Sincronización en lote
+
+Para sincronizar múltiples ventas pendientes de una vez:
+
+<Steps>
+  <Step title="Filtrar por PENDIENTE">
+    Usa el filtro de estado para mostrar solo las ventas PENDIENTES.
+  </Step>
+  <Step title="Seleccionar el rango de fechas">
+    Define el rango de fechas que deseas sincronizar (por ejemplo, todo el mes anterior).
+  </Step>
+  <Step title="Sincronizar en lote">
+    Haz clic en el botón **Sincronizar todo** que aparece cuando hay ventas PENDIENTES filtradas. El sistema procesará las ventas en orden cronológico.
+  </Step>
+  <Step title="Verificar resultados">
+    Después de la sincronización en lote, el reporte actualizará los estados automáticamente. Revisa si quedaron ERROREs que requieran atención manual.
+  </Step>
+</Steps>
+
+## Indicadores de resumen
+
+En la parte superior del reporte verás un resumen con:
+
+- **Total de ventas**: número total de ventas en el período seleccionado
+- **Total sincronizado**: ventas con factura en Zoho Books
+- **Total pendiente**: ventas sin factura (requieren acción)
+- **Total con error**: ventas que fallaron al sincronizar
+- **Monto total HIVRA**: suma de cobros realizados directamente en HIVRA
+- **Monto total MindBody**: suma de ventas capturadas desde MindBody
+
+## Badges de origen
+
+Cada venta muestra un badge que indica su origen:
+
+| Badge | Origen | Descripción |
+|-------|--------|-------------|
+| 🤖 **HIVRA** | `source='hivra'` | Cobro generado directamente desde HIVRA (enlace de pago WhatsApp) |
+| 📋 **MindBody** | `source='mindbody'` | Venta capturada desde la sincronización diaria de MindBody |
+| 🟢 **Shopify** | `source='shopify'` | Venta de un producto vinculado a Shopify |
+| ⬜ **Zoho Books** | `source='zoho_books'` | Venta importada directamente desde Zoho |
+
+## Ver la factura en Zoho
+
+Para las ventas SINCRONIZADAS, puedes hacer clic en el número de factura para abrir directamente esa factura en tu panel de Zoho Books. No necesitas buscarla manualmente.
+
+<Warning>
+  No elimines facturas directamente en Zoho Books para ventas que aparecen SINCRONIZADAS en HIVRA. Si eliminas la factura en Zoho, HIVRA no detecta eso automáticamente y la venta seguirá mostrándose como SINCRONIZADA cuando en realidad ya no hay factura. Si necesitas eliminar una factura, hazlo desde HIVRA usando la opción de anulación.
+</Warning>
+
+<Tip>
+  Revisa este reporte los primeros días de cada mes para asegurarte de que todas las ventas del mes anterior están correctamente sincronizadas antes de cerrar la contabilidad. Un mes cerrado con ventas PENDIENTES genera diferencias entre HIVRA y Zoho que son difíciles de rastrear después.
+</Tip>

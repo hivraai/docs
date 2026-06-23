@@ -1,38 +1,13 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mintlify Starter Kit",
+  "name": "HIVRA AI — Centro de Ayuda",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#E8B923",
+    "light": "#F5D060",
+    "dark": "#B8920F"
   },
   "favicon": "/favicon.svg",
-  "navigation": {
-    "pages": [
-      {
-        "group": "Getting Started",
-        "pages": [
-          "index",
-          "quickstart"
-        ]
-      }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg"
@@ -40,33 +15,146 @@
   "navbar": {
     "links": [
       {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "label": "Soporte",
+        "href": "mailto:hola@hivra.ai"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://app.mintlify.com"
+      "label": "Ir al Dashboard",
+      "href": "https://app.hivra.ai"
+    }
+  },
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Primeros Pasos",
+        "groups": [
+          {
+            "group": "Bienvenido",
+            "pages": [
+              "index",
+              "primeros-pasos/introduccion",
+              "primeros-pasos/onboarding",
+              "primeros-pasos/configuracion"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "WhatsApp",
+        "groups": [
+          {
+            "group": "WhatsApp & Agente IA",
+            "pages": [
+              "whatsapp/inbox",
+              "whatsapp/agente-ia",
+              "whatsapp/menus",
+              "whatsapp/plantillas"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Clientes",
+        "groups": [
+          {
+            "group": "Gestión de Clientes",
+            "pages": [
+              "clientes/leads",
+              "clientes/ciclo-de-vida",
+              "clientes/etiquetas"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Cobros y Pagos",
+        "groups": [
+          {
+            "group": "Cobros y Pagos",
+            "pages": [
+              "cobros/enlaces-de-pago",
+              "cobros/pixelpay",
+              "cobros/zoho-sync"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Integraciones",
+        "groups": [
+          {
+            "group": "Fitness & Bienestar",
+            "pages": [
+              "integraciones/mindbody",
+              "integraciones/google-calendar"
+            ]
+          },
+          {
+            "group": "Contabilidad & Ventas",
+            "pages": [
+              "integraciones/zoho-books",
+              "integraciones/yalocobro"
+            ]
+          },
+          {
+            "group": "Comercio",
+            "pages": [
+              "integraciones/shopify",
+              "integraciones/pedidosya"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Reportes",
+        "groups": [
+          {
+            "group": "Reportes",
+            "pages": [
+              "reportes/sincronizacion-zoho",
+              "reportes/ventas"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Configuración",
+        "groups": [
+          {
+            "group": "Configuración",
+            "pages": [
+              "configuracion/perfil-negocio",
+              "configuracion/agente",
+              "configuracion/planes"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Dashboard",
+          "href": "https://app.hivra.ai",
+          "icon": "house"
+        },
+        {
+          "anchor": "Soporte vía WhatsApp",
+          "href": "https://wa.me/50431234567",
+          "icon": "whatsapp"
+        }
+      ]
     }
   },
   "contextual": {
-    "options": [
-      "copy",
-      "view",
-      "chatgpt",
-      "claude",
-      "perplexity",
-      "mcp",
-      "cursor",
-      "vscode"
-    ]
+    "options": ["copy", "view", "claude"]
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "instagram": "https://instagram.com/hivra.ai",
+      "linkedin": "https://linkedin.com/company/hivra"
     }
   }
 }

@@ -1,0 +1,96 @@
+---
+title: "Integración con PixelPay"
+description: "Conecta tu cuenta de PixelPay para procesar pagos con tarjeta directamente desde HIVRA."
+---
+
+## ¿Qué es PixelPay?
+
+PixelPay es el procesador de pagos en línea más usado en Honduras y El Salvador. Permite a los negocios aceptar pagos con tarjeta de crédito y débito (Visa, Mastercard, Amex) a través de un enlace seguro, sin necesidad de una terminal física ni de una tienda en línea compleja.
+
+HIVRA se integra directamente con PixelPay para que puedas generar y enviar enlaces de cobro desde WhatsApp, con confirmación automática cuando el cliente paga.
+
+## Requisitos previos
+
+Para conectar PixelPay con HIVRA necesitas:
+
+- Una cuenta de comercio activa en PixelPay ([pixelpay.app](https://pixelpay.app))
+- Que tu cuenta haya pasado el proceso de verificación de PixelPay
+- Tus credenciales de API (Key ID y Secret Key)
+
+<Note>
+  El proceso de aprobación de PixelPay para nuevos comercios toma entre 24 y 72 horas hábiles. Inicia el proceso con anticipación si quieres activar los cobros desde el primer día de uso de HIVRA.
+</Note>
+
+## Conectar PixelPay
+
+<Steps>
+  <Step title="Obtener tus credenciales de API">
+    En tu panel de PixelPay, ve a **Configuración → API Keys**. Copia tu **Key ID** y tu **Secret Key**. Guárdalos en un lugar seguro — el Secret Key solo se muestra una vez.
+  </Step>
+  <Step title="Abrir la configuración en HIVRA">
+    En HIVRA, ve a **Integraciones → PixelPay** y haz clic en **Conectar**.
+  </Step>
+  <Step title="Ingresar las credenciales">
+    Pega tu Key ID y Secret Key en los campos correspondientes. Selecciona el ambiente: **Producción** (para cobros reales) o **Sandbox** (para pruebas).
+  </Step>
+  <Step title="Configurar la moneda">
+    Selecciona si tus cobros serán en **Lempiras (HNL)** o **Dólares americanos (USD)**. Esta configuración afecta todos los enlaces generados desde HIVRA.
+  </Step>
+  <Step title="Guardar y verificar">
+    Haz clic en **Guardar y verificar conexión**. HIVRA realizará una llamada de prueba a la API de PixelPay para confirmar que las credenciales son correctas. Si hay algún error, verás un mensaje descriptivo indicando qué revisar.
+  </Step>
+</Steps>
+
+## Ambiente Sandbox (pruebas)
+
+Antes de activar PixelPay en producción, te recomendamos probar el flujo completo en el ambiente Sandbox:
+
+<Steps>
+  <Step title="Activar modo Sandbox">
+    En la configuración de PixelPay en HIVRA, selecciona **Sandbox** como ambiente.
+  </Step>
+  <Step title="Generar un cobro de prueba">
+    Desde el inbox, genera un enlace de cobro por cualquier monto.
+  </Step>
+  <Step title="Pagar con tarjeta de prueba">
+    PixelPay proporciona números de tarjeta de prueba:
+    - Número: `4111 1111 1111 1111`
+    - Fecha: cualquier fecha futura
+    - CVV: cualquier 3 dígitos
+  </Step>
+  <Step title="Verificar la confirmación">
+    Si la integración está correctamente configurada, recibirás la notificación de pago confirmado en el inbox de HIVRA.
+  </Step>
+</Steps>
+
+## Webhooks de confirmación
+
+HIVRA escucha los webhooks de PixelPay para confirmar pagos en tiempo real. La URL del webhook se configura automáticamente al conectar — no necesitas hacerlo manualmente.
+
+Si experimentas problemas con confirmaciones de pago que no llegan, verifica en tu panel de PixelPay que el webhook esté activo en **Configuración → Webhooks**.
+
+## Límites y comisiones
+
+Las comisiones y límites de transacción los establece PixelPay directamente con tu cuenta de comercio y pueden variar según tu tipo de negocio y historial transaccional. HIVRA no cobra comisión adicional sobre los pagos procesados — solo cobra su suscripción mensual independientemente del volumen.
+
+Para consultar tus condiciones específicas, contacta directamente a PixelPay.
+
+## Reembolsos
+
+Los reembolsos se procesan directamente desde el panel de PixelPay, no desde HIVRA. Cuando necesites hacer un reembolso:
+
+1. Accede a tu panel en [pixelpay.app](https://pixelpay.app).
+2. Busca la transacción por número de orden o monto.
+3. Solicita el reembolso desde la interfaz de PixelPay.
+
+<Note>
+  HIVRA actualiza automáticamente el estado del cobro cuando PixelPay procesa un reembolso. El cliente no recibirá ninguna notificación automática de HIVRA sobre el reembolso — deberás comunicarlo manualmente por WhatsApp.
+</Note>
+
+<Warning>
+  Nunca compartas tu Secret Key de PixelPay con nadie, incluyendo el equipo de soporte de HIVRA. Si sospechas que tu Secret Key fue comprometida, regénérala inmediatamente en tu panel de PixelPay y actualiza las credenciales en HIVRA.
+</Warning>
+
+<Tip>
+  Si manejas cobros en múltiples monedas (por ejemplo, lempiras para clientes locales y dólares para turistas), puedes configurar dos cuentas de PixelPay — una por moneda — y seleccionar la correspondiente al generar cada enlace.
+</Tip>

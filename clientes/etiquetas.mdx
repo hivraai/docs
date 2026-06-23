@@ -1,0 +1,98 @@
+---
+title: "Etiquetas y Segmentación"
+description: "Organiza tu cartera de clientes con etiquetas para mejorar la comunicación y personalizar el seguimiento."
+---
+
+## ¿Para qué sirven las etiquetas?
+
+Las etiquetas son marcadores que puedes asignar a tus contactos para clasificarlos según características relevantes para tu negocio. A diferencia del ciclo de vida (que es automático y lineal), las etiquetas son flexibles y pueden representar cualquier dimensión que te importe: ubicación, tipo de servicio preferido, segmento de precio, origen del lead, etc.
+
+Las etiquetas se usan para:
+- **Segmentar campañas**: envía una promoción solo a clientes con la etiqueta `miembro_activo`.
+- **Filtrar el inbox**: ve rápidamente conversaciones de clientes `VIP` o de una sucursal específica.
+- **Personalizar el agente**: el agente IA puede adaptar sus respuestas según las etiquetas del contacto.
+- **Reportes**: analiza el comportamiento y conversión por segmento.
+
+## Etiquetas automáticas
+
+HIVRA asigna algunas etiquetas automáticamente basándose en el comportamiento del cliente:
+
+| Etiqueta | Cuándo se asigna | Cuándo se elimina |
+|----------|-----------------|-------------------|
+| `payment_link_sent` | Cuando se envía un enlace de pago | Cuando el pago es confirmado |
+| `bank_transfer_sent` | Cuando se envía información de transferencia | Cuando el pago es confirmado |
+| `esperando_pago` | Cuando hay un cobro pendiente activo | Cuando se confirma el pago |
+| `lead_nuevo` | Al primer contacto del cliente | Después de 7 días o cuando compra |
+| `follow_up_1` | 24 horas después sin respuesta | Cuando el cliente responde o compra |
+| `follow_up_2` | 72 horas después sin respuesta | Cuando el cliente responde o compra |
+
+## Crear etiquetas personalizadas
+
+<Steps>
+  <Step title="Acceder al gestor de etiquetas">
+    Ve a **Configuración → Etiquetas** y haz clic en **Nueva etiqueta**.
+  </Step>
+  <Step title="Definir la etiqueta">
+    Ingresa:
+    - **Nombre**: en minúsculas, sin espacios (usa guión bajo). Ejemplo: `cliente_vip`, `sucursal_sps`, `interes_reformer`.
+    - **Color**: selecciona un color de identificación visual para el inbox.
+    - **Descripción** (opcional): para qué se usa esta etiqueta.
+  </Step>
+  <Step title="Guardar">
+    La etiqueta queda disponible inmediatamente para asignar a contactos.
+  </Step>
+</Steps>
+
+## Asignar etiquetas a contactos
+
+### Manual (desde el inbox)
+
+1. Abre la conversación del contacto.
+2. En el panel derecho, busca la sección **Etiquetas**.
+3. Haz clic en **+ Agregar** y selecciona la etiqueta del listado.
+
+### Manual (desde el perfil del cliente)
+
+1. Ve a **Clientes → Contactos** y abre el perfil.
+2. En la sección de etiquetas, agrega o elimina las que correspondan.
+
+### Masiva (desde el listado)
+
+1. En **Clientes → Contactos**, filtra los contactos que quieres etiquetar.
+2. Selecciona múltiples contactos con la casilla de verificación.
+3. Haz clic en **Acciones → Asignar etiqueta** y elige la etiqueta.
+
+## Estrategias de etiquetado recomendadas
+
+<AccordionGroup>
+  <Accordion title="Por ubicación o sucursal" icon="map-pin">
+    Si tienes múltiples sucursales o atienes clientes de diferentes ciudades, etiqueta por ubicación: `sps`, `tegucigalpa`, `roatan`. Esto te permite enviar comunicaciones relevantes por zona geográfica.
+  </Accordion>
+  <Accordion title="Por servicio o producto de interés" icon="star">
+    Etiquetas como `interes_reformer`, `interes_yoga` o `cliente_spa` te permiten enviar campañas específicas a personas que ya mostraron interés en esa categoría.
+  </Accordion>
+  <Accordion title="Por segmento de precio" icon="dollar-sign">
+    Identifica a tus clientes de mayor valor con etiquetas como `cliente_vip` o `alto_valor`. Puedes ofrecerles un trato diferenciado o priorizarlos en las respuestas del operador.
+  </Accordion>
+  <Accordion title="Por canal de origen" icon="share">
+    Rastrea de dónde vienen tus leads: `instagram`, `referido`, `walk_in`, `google`. Esto te ayuda a saber qué canales de marketing son más efectivos.
+  </Accordion>
+</AccordionGroup>
+
+## Usar etiquetas para segmentar campañas
+
+Al crear una campaña de WhatsApp, puedes seleccionar un segmento basado en etiquetas:
+
+- **Enviar a todos con etiqueta X**: selecciona contactos que tienen la etiqueta.
+- **Excluir etiqueta Y**: envía a todos menos a los que tienen una etiqueta específica.
+- **Combinaciones**: contactos que tienen etiqueta A Y etiqueta B, o que tienen A PERO NO B.
+
+Ejemplo práctico: enviar una promoción de renovación solo a clientes con `miembro_activo` que NO tienen `no_contactar`.
+
+<Warning>
+  Evita crear demasiadas etiquetas. Un sistema con 50+ etiquetas se vuelve imposible de gestionar. Recomendamos iniciar con menos de 15 etiquetas bien definidas y agregar nuevas solo cuando tengas una necesidad clara y específica.
+</Warning>
+
+<Tip>
+  Documenta el significado de cada etiqueta en la descripción del campo. Cuando otros operadores se unan a tu equipo, podrán entender el sistema de etiquetado sin necesitar capacitación extensa.
+</Tip>

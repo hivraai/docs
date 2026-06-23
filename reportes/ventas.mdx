@@ -1,0 +1,105 @@
+---
+title: "Reporte de Ventas"
+description: "Analiza el desempeño de ventas de tu negocio con métricas detalladas y filtros avanzados."
+---
+
+## ¿Qué muestra el reporte de ventas?
+
+El reporte de ventas de HIVRA consolida todas las transacciones confirmadas en un período de tiempo, sin importar el canal por el que ingresaron (WhatsApp, MindBody, Shopify). Te da una visión completa del desempeño de tu negocio en un solo lugar.
+
+## Acceder al reporte
+
+Ve a **Reportes → Ventas** en el menú lateral. Puedes seleccionar el período con los filtros en la parte superior.
+
+## Métricas principales
+
+El encabezado del reporte muestra un resumen ejecutivo con:
+
+| Métrica | Descripción |
+|---------|-------------|
+| **Ingresos totales** | Suma de todos los cobros confirmados en el período |
+| **Número de transacciones** | Total de órdenes pagadas |
+| **Ticket promedio** | Ingreso total dividido entre el número de transacciones |
+| **Clientes nuevos** | Compradores que realizaron su primera compra en el período |
+| **Clientes recurrentes** | Compradores con más de una compra en el período |
+
+## Desglose por canal
+
+El reporte muestra cómo se distribuyen las ventas según el canal de origen:
+
+- **HIVRA WhatsApp**: cobros generados directamente por el agente IA o el operador vía enlace de pago
+- **MindBody**: ventas capturadas desde la sincronización de MindBody (walk-ins, app MindBody, front desk)
+- **Shopify**: ventas de productos sincronizados desde la tienda en línea
+- **Total combinado**: suma de todos los canales
+
+<Note>
+  Si tu negocio solo usa HIVRA sin integraciones externas, verás únicamente el canal HIVRA WhatsApp. Las columnas de otros canales aparecen con valor 0 hasta que se activa la integración correspondiente.
+</Note>
+
+## Desglose por producto
+
+La tabla de productos muestra:
+
+| Columna | Descripción |
+|---------|-------------|
+| **Producto** | Nombre del servicio o producto |
+| **Unidades vendidas** | Número de veces que se vendió |
+| **Ingresos generados** | Monto total de ventas de ese producto |
+| **% del total** | Participación sobre el ingreso total |
+| **Precio promedio** | Precio promedio de venta (relevante si hay descuentos) |
+
+Ordena la tabla haciendo clic en cualquier columna para identificar rápidamente tus productos más y menos vendidos.
+
+## Desglose por sucursal
+
+Si tu negocio tiene múltiples sucursales o ubicaciones, el reporte desglosa las ventas por ubicación. Esto te permite comparar el desempeño de cada sede en el mismo período.
+
+## Desglose temporal
+
+El gráfico de tendencia muestra la evolución de ventas dentro del período seleccionado:
+
+- **Vista diaria**: para períodos de hasta 30 días
+- **Vista semanal**: para períodos de 1 a 3 meses
+- **Vista mensual**: para períodos de más de 3 meses
+
+Identifica patrones estacionales, picos de fin de semana o caídas de ventas en días específicos.
+
+## Filtros avanzados
+
+- **Por fecha**: día, semana, mes, trimestre, año, o rango personalizado
+- **Por producto**: ver solo las ventas de un producto específico
+- **Por sucursal**: aislar el desempeño de una ubicación
+- **Por operador**: ver qué vendedor generó más cobros (solo para cobros HIVRA)
+- **Por método de pago**: comparar tarjeta vs transferencia vs otro
+- **Por canal**: ver solo ventas de HIVRA, solo MindBody, etc.
+
+## Exportar el reporte
+
+Para compartir el reporte con tu equipo o contador:
+
+1. Aplica los filtros deseados.
+2. Haz clic en **Exportar** en la esquina superior derecha.
+3. Selecciona el formato: **CSV** (para análisis en Excel) o **PDF** (para compartir visualmente).
+4. El archivo se descargará inmediatamente.
+
+## Comparación de períodos
+
+El reporte incluye una comparación automática con el período anterior equivalente. Por ejemplo, si estás viendo el mes de junio, verás automáticamente cómo se compara con mayo del mismo año, y con junio del año anterior.
+
+Las variaciones porcentuales se muestran en verde (positivo) o rojo (negativo) para facilitar la interpretación rápida.
+
+<AccordionGroup>
+  <Accordion title="¿Por qué el total de ventas no coincide con lo que veo en Zoho?" icon="circle-question">
+    El reporte de ventas de HIVRA incluye TODAS las transacciones confirmadas, incluyendo las que aún están PENDIENTES de sincronizar a Zoho. Zoho Books solo muestra lo que ya fue facturado. Para que coincidan, primero sincroniza todas las ventas PENDIENTES desde el reporte de Sincronización Zoho.
+  </Accordion>
+  <Accordion title="¿Las ventas canceladas o reembolsadas se incluyen?" icon="circle-question">
+    No. Solo se incluyen ventas con estado PAGADO. Las órdenes canceladas, expiradas o reembolsadas se excluyen de todos los cálculos.
+  </Accordion>
+  <Accordion title="¿El ISV está incluido en los totales?" icon="circle-question">
+    Sí, los montos mostrados en el reporte de ventas incluyen el ISV (son los montos que el cliente pagó). Si necesitas el monto base sin impuesto para reportes fiscales, usa el reporte de Zoho Books donde los montos están desglosados con y sin ISV.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  Usa el reporte de ventas cada semana para identificar tendencias en tiempo real. No esperes hasta el cierre del mes para revisar el desempeño — los problemas detectados a mitad de mes se pueden corregir a tiempo.
+</Tip>

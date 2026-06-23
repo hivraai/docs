@@ -1,0 +1,75 @@
+---
+title: "Integración con PedidosYa"
+description: "Sincroniza tu menú y gestiona pedidos de PedidosYa directamente desde el inbox de HIVRA."
+---
+
+## ¿Qué hace la integración con PedidosYa?
+
+La integración de HIVRA con PedidosYa permite a los restaurantes y negocios de comida gestionar sus pedidos de delivery desde el mismo lugar donde atienden a sus clientes de WhatsApp. En lugar de cambiar entre la tablet de PedidosYa y el teléfono, tu equipo ve todos los pedidos en un solo inbox.
+
+## ¿Para quién es esta integración?
+
+Esta integración es útil si tu negocio:
+
+- Tiene presencia activa en la plataforma de PedidosYa en Honduras
+- Quiere centralizar las notificaciones de pedidos junto con las conversaciones de WhatsApp
+- Busca responder a clientes de PedidosYa que luego escriben directamente por WhatsApp
+
+## Conectar PedidosYa
+
+<Steps>
+  <Step title="Obtener credenciales de partner">
+    La integración requiere acceso a la API de partner de PedidosYa. Contacta al equipo de HIVRA en soporte para iniciar el proceso de habilitación, ya que requiere coordinación con el equipo técnico de PedidosYa.
+  </Step>
+  <Step title="Configurar el restaurant ID">
+    Una vez habilitado, ingresa tu **Restaurant ID** de PedidosYa en **Integraciones → PedidosYa**. Este número lo encuentras en tu panel de administración de PedidosYa.
+  </Step>
+  <Step title="Sincronizar el menú">
+    Haz clic en **Sincronizar menú** para importar tus productos, categorías y precios desde PedidosYa. Esto crea el catálogo de referencia en HIVRA.
+  </Step>
+  <Step title="Configurar notificaciones">
+    Define cómo quieres recibir las notificaciones de nuevos pedidos en el inbox de HIVRA.
+  </Step>
+</Steps>
+
+## Cómo funciona la gestión de pedidos
+
+Cuando entra un pedido nuevo en PedidosYa:
+
+1. HIVRA recibe la notificación del pedido en tiempo real.
+2. El pedido aparece como una nueva conversación en el inbox con un ícono de PedidosYa.
+3. El operador puede ver los detalles del pedido, aceptarlo o rechazarlo desde el inbox.
+4. Si hay algún problema con el pedido (ingrediente faltante, tiempo de espera extendido), el operador puede comunicarse con el cliente si tiene su número disponible.
+5. El estado del pedido se actualiza en PedidosYa cuando el operador marca las acciones correspondientes.
+
+## Clientes que llegan por ambos canales
+
+Un escenario común es el de clientes que piden por PedidosYa y luego escriben directamente por WhatsApp (para preguntas, quejas o pedidos futuros). HIVRA puede vincular el perfil del cliente de PedidosYa con su número de WhatsApp si el cliente proporciona el mismo correo electrónico en ambas plataformas.
+
+Cuando están vinculados, el agente IA puede ver el historial de pedidos de PedidosYa en el panel del cliente y ofrecer una experiencia más personalizada.
+
+## Sincronización de menú
+
+Si actualizas precios o agregás nuevos platos en PedidosYa, puedes reflejar esos cambios en HIVRA:
+
+1. Ve a **Integraciones → PedidosYa**.
+2. Haz clic en **Sincronizar menú ahora**.
+3. Los cambios estarán disponibles en el catálogo de HIVRA en minutos.
+
+La sincronización automática ocurre una vez al día. Si tienes cambios urgentes de menú (por ejemplo, un plato agotado), sincroniza manualmente.
+
+<Note>
+  Los cambios de menú en HIVRA NO se sincronizan de vuelta a PedidosYa. HIVRA es solo de lectura respecto al catálogo de PedidosYa. Para actualizar precios en la plataforma, hazlo directamente en tu panel de PedidosYa.
+</Note>
+
+## Zonas de cobertura y horarios
+
+La integración respeta automáticamente las zonas de cobertura y horarios de atención configurados en PedidosYa. HIVRA no acepta pedidos fuera de esos parámetros.
+
+<Warning>
+  Si cierras tu restaurante de emergencia en PedidosYa (pausa temporal), HIVRA refleja ese estado pero con un retraso de hasta 5 minutos. Durante ese lapso, es posible que entren pedidos que no puedes atender. Comunica cierres de emergencia directamente al cliente si esto ocurre.
+</Warning>
+
+<Tip>
+  Usa las etiquetas de HIVRA para identificar a los clientes habituales de PedidosYa que también te escriben por WhatsApp. Etiquétalos como `pedidosya_frecuente` y ofréceles un canal de pedido directo con beneficios especiales para fidelizarlos fuera de la plataforma.
+</Tip>

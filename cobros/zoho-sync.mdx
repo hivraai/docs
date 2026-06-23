@@ -1,0 +1,84 @@
+---
+title: "Sincronización Contable"
+description: "Cómo los cobros de HIVRA se sincronizan automáticamente con Zoho Books para tu contabilidad."
+---
+
+## Cobros y contabilidad en HIVRA
+
+Cuando un cliente paga a través de HIVRA, la transacción no solo queda registrada en el sistema — también se puede sincronizar automáticamente con tu software contable. Esto elimina la doble digitación, reduce errores humanos y da a tu contador información actualizada en tiempo real.
+
+HIVRA soporta sincronización contable con **Zoho Books** y con **YaloCobro**.
+
+## ¿Qué se sincroniza automáticamente?
+
+Cuando se confirma un pago en HIVRA, el sistema crea automáticamente en Zoho Books:
+
+1. **Un cliente** (si no existe previamente) con nombre, correo y datos de contacto.
+2. **Una factura de ventas** con los productos o servicios comprados, monto y fecha.
+3. **Un pago** aplicado a la factura, usando la cuenta contable configurada para el método de pago (tarjeta, transferencia, etc.).
+
+El resultado es que la factura aparece como **pagada** en Zoho Books sin ninguna acción manual.
+
+## Configurar la integración contable
+
+Para que la sincronización ocurra, debes:
+
+1. Conectar Zoho Books desde **Integraciones → Zoho Books** (ver [guía completa](/integraciones/zoho-books)).
+2. Configurar el **impuesto** que aplica a tus ventas (ISV 15% en Honduras).
+3. Configurar las **cuentas de pago** en el mapa de cuentas (ver sección abajo).
+
+## Mapa de cuentas de pago
+
+HIVRA necesita saber en qué cuenta contable registrar cada método de pago. Esto se configura en **Integraciones → Zoho Books → Configuración avanzada**:
+
+| Método de pago | Cuenta recomendada en Zoho |
+|----------------|---------------------------|
+| PixelPay (tarjeta) | Cuentas por cobrar / Banco PixelPay |
+| Transferencia bancaria | Banco corriente (tu cuenta bancaria) |
+| Otro / Efectivo | Caja chica |
+
+Si no configuras el mapa de cuentas, todos los pagos se registran en la cuenta **"default"** que hayas definido.
+
+## Verificar el estado de sincronización
+
+Desde **Reportes → Sincronización Zoho**, puedes ver el estado de cada venta:
+
+| Estado | Significado |
+|--------|-------------|
+| ✅ SINCRONIZADO | La factura fue creada y el pago registrado en Zoho Books |
+| ⏳ PENDIENTE | La venta aún no fue enviada a Zoho (la factura no existe) |
+| ❌ ERROR | Hubo un problema al crear la factura (ver detalle del error) |
+| ⊙ DUPLICADO | Se detectó que ya existía una factura para esta transacción |
+
+## Sincronización manual
+
+Si una venta quedó PENDIENTE (por ejemplo, porque Zoho Books estaba temporalmente desconectado), puedes sincronizarla manualmente:
+
+<Steps>
+  <Step title="Ir al reporte de sincronización">
+    Ve a **Reportes → Sincronización Zoho**.
+  </Step>
+  <Step title="Filtrar por PENDIENTE">
+    Usa el filtro de estado para ver solo las ventas PENDIENTES.
+  </Step>
+  <Step title="Sincronizar individualmente o en lote">
+    Para una venta individual, haz clic en **Sincronizar a Zoho** en la fila correspondiente. Para sincronizar todas las pendientes del rango de fecha, usa el botón **Sincronizar ahora** en la parte superior.
+  </Step>
+</Steps>
+
+## Protección contra duplicados
+
+HIVRA detecta automáticamente cuando una venta ya tiene una factura en Zoho Books y evita crearla de nuevo. Esto es importante si:
+
+- Hiciste una sincronización manual y luego el sistema intentó hacerlo automáticamente.
+- Un mismo servicio fue cobrado a través de HIVRA Y registrado en MindBody (que también sincroniza con Zoho).
+
+En estos casos, la venta aparece como **DUPLICADO** en el reporte — esto es informativo, no un error.
+
+<Warning>
+  Si ves muchas ventas en estado ERROR, lo más común es que las credenciales de Zoho Books hayan expirado o que el impuesto configurado (ISV) no coincida con un impuesto existente en tu organización de Zoho. Ve a **Integraciones → Zoho Books** y reconecta si es necesario.
+</Warning>
+
+<Tip>
+  Revisa el reporte de sincronización al menos una vez por semana para asegurarte de que no haya ventas PENDIENTES acumuladas. Las ventas PENDIENTES no están en tu contabilidad hasta que se sincronicen.
+</Tip>

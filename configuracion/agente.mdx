@@ -1,0 +1,108 @@
+---
+title: "Configuración del Agente IA"
+description: "Personaliza el comportamiento, tono y capacidades de tu asistente de WhatsApp."
+---
+
+## ¿Qué puedes configurar en el agente?
+
+El agente IA de HIVRA es altamente configurable. Desde el nombre con el que se presenta hasta la profundidad de las respuestas, cómo maneja situaciones específicas y cuándo decide escalar al operador. Esta configuración es la que define la personalidad y efectividad de tu asistente.
+
+Ve a **Configuración → Agente** para acceder a todas las opciones.
+
+## Identidad del agente
+
+### Nombre del agente
+El nombre con el que tu asistente se presentará a los clientes. Elige un nombre que encaje con la cultura de tu negocio. Ejemplos populares: Sofía, Valentina, Mia, Aria.
+
+No uses el nombre de tu marca directamente (como "Agente MOUV") — un nombre personal crea mayor conexión con el cliente.
+
+### Tono de comunicación
+Selecciona el tono que mejor representa a tu negocio:
+
+| Tono | Descripción | Ideal para |
+|------|-------------|-----------|
+| **Profesional** | Formal, cortés, preciso | Clínicas, servicios financieros, consultorías |
+| **Amigable** | Cálido, cercano, usa emojis moderados | Estudios fitness, spas, educación |
+| **Casual** | Desenfadado, dinámico, juvenil | Restaurantes, moda, entretenimiento |
+
+### Idioma
+HIVRA responde en el idioma en que el cliente escribe. Sin embargo, puedes definir el idioma predeterminado cuando el sistema no puede detectar el idioma del cliente. Para Honduras, recomendamos **Español (Honduras)**.
+
+## Instrucciones del agente
+
+Este es el campo más importante de la configuración. Las instrucciones definen el comportamiento del agente más allá de las opciones estándar. Aquí puedes indicarle:
+
+- Información específica que siempre debe mencionar ("Siempre menciona que tenemos estacionamiento gratuito")
+- Restricciones ("No dar precios por WhatsApp sin primero preguntar el nombre del cliente")
+- Prioridades ("Si el cliente pregunta por el Paquete 10 clases, siempre mencionar el beneficio de la clase gratuita adicional")
+- Protocolo de situaciones especiales ("Si el cliente menciona que ya es miembro, verificar su membresía antes de ofrecer un nuevo paquete")
+
+<Note>
+  Las instrucciones son texto libre pero tienen un límite de 2,000 caracteres. Sé específico y concreto — una instrucción como "ser amable" es demasiado vaga. Mejor: "Al recibir una queja, primero disculparse en nombre del negocio antes de ofrecer una solución."
+</Note>
+
+## Base de conocimiento
+
+La base de conocimiento es donde vive la información que el agente usa para responder preguntas. Puedes:
+
+- **Subir documentos**: PDF, Word, o texto plano con información de tus servicios, precios, FAQs
+- **Agregar entradas manuales**: preguntas y respuestas específicas que quieres que el agente sepa
+- **Sincronizar desde el catálogo**: el catálogo de productos de HIVRA se sincroniza automáticamente
+
+Para gestionar la base de conocimiento, ve a **Configuración → Base de conocimiento**.
+
+## Escalamiento al operador
+
+### Umbral de escalamiento
+Define qué tan agresivo es el escalamiento:
+
+- **Conservador**: el agente intenta resolver casi todo por su cuenta. Escala solo cuando el cliente lo solicita explícitamente.
+- **Balanceado** (recomendado): el agente resuelve consultas estándar y escala cuando detecta frustración o preguntas complejas.
+- **Proactivo**: el agente escala ante la primera señal de incertidumbre. Ideal si priorizas la atención humana sobre la automatización.
+
+### Frases que activan el escalamiento
+Agrega frases específicas que, cuando el cliente las diga, siempre activen el escalamiento al operador:
+
+- "hablar con un humano"
+- "quiero hablar con alguien"
+- "necesito hablar con el manager"
+- "quiero hablar con la encargada"
+
+### Mensaje de escalamiento
+Personaliza el mensaje que el agente le envía al cliente cuando escala:
+
+```
+Un momento por favor, te conecto con uno de nuestros asesores 
+que podrá ayudarte mejor con esto. ⚡
+```
+
+## Seguimiento automático
+
+### Seguimiento a leads sin respuesta
+Define cuándo y qué dice el agente cuando un lead no responde:
+
+- **Primera instancia**: cuántas horas esperar antes del primer seguimiento (predeterminado: 24h)
+- **Segunda instancia**: cuántas horas adicionales esperar (predeterminado: 72h desde el primer)
+- **Tercera instancia**: si deseas un tercer contacto y cuándo (predeterminado: 7 días)
+
+Si el lead no responde después de la tercera instancia, el sistema lo marca como "Lead frío" y detiene el seguimiento automático.
+
+### Mensaje de seguimiento a lead sin respuesta (24h)
+```
+Hola {{nombre}}, ¡espero que estés bien! Solo quería hacer seguimiento 
+de la información que te enviamos sobre {{producto_consultado}}. 
+¿Pudiste revisarla? Con gusto respondemos cualquier pregunta 😊
+```
+
+## Respuestas rápidas del operador
+
+Las respuestas rápidas son plantillas de texto que los operadores pueden usar al responder manualmente. Se activan escribiendo `/` en el campo de texto del inbox. Ve a **Configuración → Respuestas rápidas** para gestionarlas.
+
+Ejemplos útiles:
+- `/saludos` → "¡Hola! ¿En qué puedo ayudarte hoy? 😊"
+- `/horarios` → "Nuestros horarios son: Lunes a Viernes 6am-9pm, Sábados 7am-2pm"
+- `/direccion` → "Estamos ubicados en [dirección completa]. Te compartimos la ubicación exacta: [link maps]"
+
+<Tip>
+  Revisa y actualiza las instrucciones del agente al menos una vez al mes. El negocio cambia, los productos cambian, las promociones cambian — el agente necesita estar al día para ser efectivo. Programa un recordatorio mensual para esta revisión.
+</Tip>

@@ -1,0 +1,74 @@
+---
+title: "Integración con Shopify"
+description: "Conecta tu tienda de Shopify para vender productos por WhatsApp y sincronizar tu catálogo automáticamente."
+---
+
+## ¿Qué hace la integración con Shopify?
+
+La integración de HIVRA con Shopify te permite sincronizar el catálogo de tu tienda en línea directamente con tu agente de WhatsApp. Tus clientes pueden preguntar por productos, ver precios y hacer pedidos por WhatsApp — sin tener que visitar tu sitio web. Cada venta queda registrada en Shopify.
+
+## Conectar Shopify
+
+<Steps>
+  <Step title="Instalar la app de HIVRA en Shopify">
+    Desde la App Store de Shopify, busca **HIVRA AI** e instala la aplicación en tu tienda. Sigue el proceso de instalación de Shopify — será redirigido de vuelta a HIVRA automáticamente.
+  </Step>
+  <Step title="Autorizar la conexión">
+    Verifica los permisos que solicita HIVRA (lectura de catálogo, creación de órdenes) y haz clic en **Instalar app**.
+  </Step>
+  <Step title="Configurar en HIVRA">
+    En HIVRA, ve a **Integraciones → Shopify**. Deberías ver tu tienda ya conectada. Si no, ingresa el dominio de tu tienda (por ejemplo, `mitienda.myshopify.com`) y genera el token de acceso manualmente.
+  </Step>
+  <Step title="Sincronizar el catálogo">
+    Haz clic en **Sincronizar productos ahora**. HIVRA importará todos los productos activos de Shopify, incluyendo nombre, precio, variantes e imágenes.
+  </Step>
+</Steps>
+
+## Gestión de colecciones
+
+Las colecciones de Shopify se importan como categorías en HIVRA. Puedes controlar qué colecciones son visibles para el agente de WhatsApp:
+
+- Ve a **Integraciones → Shopify → Colecciones**.
+- Activa o desactiva la visibilidad de cada colección para el agente.
+- Las colecciones desactivadas no serán mencionadas por el agente en las conversaciones.
+
+## Disponibilidad en enlaces de pago
+
+Por defecto, los productos de Shopify no se muestran en el selector de productos para cobros directos de WhatsApp, ya que tienen su propio flujo de compra en la tienda. Sin embargo, puedes habilitarlos individualmente:
+
+- Ve a **Integraciones → Shopify → Productos**.
+- Activa el toggle **Disponible para cobros WhatsApp** en los productos que quieras incluir.
+
+<Note>
+  Cuando un producto de Shopify se vende a través de un cobro de WhatsApp (enlace PixelPay), la orden se registra en HIVRA pero NO automáticamente en Shopify. Si necesitas que cada venta de WhatsApp cree una orden en Shopify, contacta al equipo de HIVRA para habilitar esta sincronización.
+</Note>
+
+## Sincronización automática del catálogo
+
+HIVRA sincroniza el catálogo de Shopify diariamente para mantener precios e inventario actualizados. Si haces cambios urgentes en Shopify (por ejemplo, liquidar un producto), puedes forzar una sincronización inmediata:
+
+1. Ve a **Integraciones → Shopify**.
+2. Haz clic en **Sincronizar ahora**.
+3. Los cambios estarán disponibles para el agente en menos de 2 minutos.
+
+<Warning>
+  Los cambios de precio en Shopify se reflejan en HIVRA solo después de la próxima sincronización. Si cambias un precio en Shopify y un cliente pregunta inmediatamente por WhatsApp, el agente puede dar el precio anterior. Sincroniza manualmente para evitar esto.
+</Warning>
+
+## Casos de uso recomendados
+
+<AccordionGroup>
+  <Accordion title="Catálogo de productos para WhatsApp" icon="store">
+    Permite que los clientes navegen tu catálogo por WhatsApp y reciban links directos a los productos que les interesen en tu tienda. Ideal para negocios de ropa, accesorios y artículos para el hogar.
+  </Accordion>
+  <Accordion title="Notificaciones de pedidos" icon="bell">
+    Cuando un cliente hace un pedido en tu tienda de Shopify, HIVRA puede enviarle automáticamente una confirmación por WhatsApp con el número de orden y el estado del envío.
+  </Accordion>
+  <Accordion title="Recuperación de carritos abandonados" icon="cart-shopping">
+    Integrado con las automatizaciones de Shopify, HIVRA puede enviar un mensaje de WhatsApp a clientes que abandonaron su carrito, con un enlace directo para retomar la compra.
+  </Accordion>
+</AccordionGroup>
+
+<Tip>
+  Si tienes más de 500 productos en Shopify, organízalos bien en colecciones antes de sincronizar. Un catálogo desorganizado hace que el agente IA tenga dificultades para recomendar productos relevantes a los clientes.
+</Tip>

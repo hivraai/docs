@@ -1,0 +1,93 @@
+---
+title: "Gestión de Leads"
+description: "Captura, califica y convierte prospectos en clientes usando el sistema de leads de HIVRA AI."
+---
+
+## ¿Qué es un lead en HIVRA?
+
+Un lead es cualquier persona que ha iniciado contacto con tu negocio por WhatsApp pero aún no ha realizado una compra. HIVRA captura automáticamente a cada persona que te escribe y la registra como contacto, asignándole el estado inicial de **lead** en el ciclo de vida del cliente.
+
+El sistema de leads te ayuda a responder tres preguntas clave:
+- ¿Cuántas personas nuevas entraron en contacto esta semana?
+- ¿Cuántos de esos leads se convirtieron en compradores?
+- ¿Cuáles leads están listos para un seguimiento?
+
+## Captura automática de leads
+
+Cada vez que alguien envía un mensaje a tu número de WhatsApp Business por primera vez, HIVRA:
+
+1. Crea un nuevo contacto con el número de teléfono y el nombre de perfil de WhatsApp.
+2. Registra la fecha y hora del primer contacto.
+3. Asigna el estado de ciclo de vida **Lead**.
+4. Inicia el flujo del agente IA para calificar al prospecto.
+5. (Opcional) Agrega la etiqueta `lead_nuevo` para facilitar el filtrado.
+
+<Note>
+  Si el mismo número ya existía en tu base de datos (por ejemplo, un cliente que cambió de teléfono), HIVRA detecta el duplicado y actualiza el registro existente en lugar de crear uno nuevo.
+</Note>
+
+## Calificación de leads
+
+El agente IA califica automáticamente a los leads según sus respuestas durante la conversación. La calificación considera:
+
+- **Intención de compra**: ¿mencionó un producto específico o preguntó por precios?
+- **Urgencia**: ¿necesita el servicio pronto o solo está explorando?
+- **Ajuste**: ¿el producto que busca existe en tu catálogo?
+- **Capacidad**: ¿mostró interés en los precios ofrecidos?
+
+### Calificación manual
+
+Los operadores también pueden calificar leads manualmente desde el panel del cliente:
+
+<Steps>
+  <Step title="Abrir el perfil del contacto">
+    Desde el inbox, selecciona la conversación y haz clic en el nombre del contacto para abrir su perfil completo.
+  </Step>
+  <Step title="Ajustar el ciclo de vida">
+    En la sección **Ciclo de vida**, selecciona la etapa que corresponde: Lead, Prospecto, Cliente activo, etc.
+  </Step>
+  <Step title="Agregar notas">
+    En el campo de notas, agrega contexto relevante sobre el lead que el equipo deba conocer. Por ejemplo: "Interesada en paquete de reformer. Comparando con otro estudio."
+  </Step>
+</Steps>
+
+## Seguimiento de leads (Nurturing)
+
+El seguimiento automático de leads es una de las funciones más valiosas de HIVRA. Si un prospecto mostró interés pero no compró, el sistema programa mensajes de seguimiento automáticos.
+
+### Secuencia de seguimiento predeterminada
+
+| Tiempo desde el último contacto | Mensaje |
+|----------------------------------|---------|
+| 24 horas | Recordatorio suave — "¿Pudiste revisar la información que te envié?" |
+| 72 horas | Mensaje de valor agregado — beneficio adicional o testimonio |
+| 7 días | Oferta de reenganche — incentivo especial para cerrar |
+
+Puedes personalizar estos mensajes desde **Configuración → Agente → Seguimiento**.
+
+<Warning>
+  Los mensajes de seguimiento respetan las horas de silencio configuradas (6 AM a 9 PM por defecto). Si un lead tiene la etiqueta `no_contactar`, el sistema omite automáticamente el seguimiento para ese contacto.
+</Warning>
+
+## Filtrar y gestionar tu lista de leads
+
+Desde **Clientes → Contactos**, puedes filtrar para ver solo leads:
+
+- **Por estado de ciclo de vida**: filtra por "Lead" para ver todos los prospectos sin compra.
+- **Por etiqueta**: usa etiquetas como `lead_calificado` o `pendiente_seguimiento`.
+- **Por fecha de primer contacto**: identifica leads recientes o leads antiguos sin actividad.
+- **Por fuente**: identifica si el lead llegó orgánicamente o desde una campaña específica.
+
+## Convertir un lead en cliente
+
+Cuando un lead realiza su primera compra, HIVRA actualiza automáticamente su estado:
+
+1. El pago se confirma.
+2. El estado cambia de **Lead** a **Cliente activo**.
+3. Se eliminan las etiquetas de seguimiento automático.
+4. Se registra la primera transacción en su historial.
+5. Se calcula el valor de vida inicial del cliente.
+
+<Tip>
+  Revisa semanalmente el listado de leads con más de 7 días de inactividad. Muchos de ellos solo necesitan un contacto personalizado del operador humano para convertirse en clientes. El agente IA es excelente para volumen, pero el toque humano cierra ventas complejas.
+</Tip>

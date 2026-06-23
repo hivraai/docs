@@ -1,0 +1,105 @@
+---
+title: "Ciclo de Vida del Cliente"
+description: "Entiende las etapas por las que pasa cada cliente y cómo HIVRA las gestiona automáticamente."
+---
+
+## El ciclo de vida en HIVRA
+
+El ciclo de vida del cliente es el modelo que HIVRA usa para clasificar a cada contacto según su relación con tu negocio. Esta clasificación permite que el agente IA ajuste su tono y estrategia de comunicación, y te ayuda a enfocar tus esfuerzos donde más impacto tienen.
+
+## Etapas del ciclo de vida
+
+<AccordionGroup>
+  <Accordion title="🔵 Lead — Primer contacto" icon="circle">
+    **¿Quién es?** Cualquier persona que escribió por primera vez y aún no ha comprado.
+
+    **Comportamiento del agente**: saluda, califica la necesidad, presenta los servicios relevantes y genera un enlace de pago o agenda una cita.
+
+    **Transición automática**: cuando realiza la primera compra, pasa a **Cliente activo**.
+  </Accordion>
+
+  <Accordion title="🟡 Prospecto — Interés confirmado" icon="circle">
+    **¿Quién es?** Un lead que mostró intención de compra clara (preguntó por precio, pidió un enlace de pago, agendó una consulta) pero aún no completó la transacción.
+
+    **Comportamiento del agente**: hace seguimiento activo con mensajes de valor y recordatorios. El intervalo de seguimiento se reduce a 24 horas.
+
+    **Transición automática**: cuando realiza la primera compra, pasa a **Cliente activo**. Si no hay actividad en 30 días, vuelve a **Lead**.
+  </Accordion>
+
+  <Accordion title="🟢 Cliente activo — Comprador reciente" icon="circle">
+    **¿Quién es?** Un contacto que ha comprado en los últimos 90 días.
+
+    **Comportamiento del agente**: asume que el cliente conoce el negocio. Responde consultas sin presentaciones extensas. Proactivamente ofrece renovaciones o productos complementarios cuando corresponde.
+
+    **Transición automática**: si no compra en 90 días, pasa a **Cliente inactivo**.
+  </Accordion>
+
+  <Accordion title="⚠️ Cliente inactivo — Sin actividad reciente" icon="circle">
+    **¿Quién es?** Un cliente que compró anteriormente pero no ha tenido actividad en más de 90 días.
+
+    **Comportamiento del agente**: envía mensajes de reactivación con un tono personalizado que reconoce la relación previa. Puede ofrecer incentivos especiales si está configurado.
+
+    **Transición automática**: si responde y compra, vuelve a **Cliente activo**.
+  </Accordion>
+
+  <Accordion title="⛔ No contactar — Exclusión voluntaria" icon="circle">
+    **¿Quién es?** Contactos que han pedido no recibir más mensajes automáticos.
+
+    **Comportamiento del agente**: no envía mensajes automáticos de ningún tipo. El operador aún puede escribir manualmente si es necesario.
+
+    **Cómo se activa**: el sistema detecta frases como "no me escriban más" o "quiero darme de baja" y aplica esta etiqueta automáticamente. También se puede asignar manualmente.
+  </Accordion>
+</AccordionGroup>
+
+## Cómo HIVRA calcula el ciclo de vida
+
+El sistema actualiza automáticamente el ciclo de vida de cada cliente basándose en:
+
+| Factor | Peso | Descripción |
+|--------|------|-------------|
+| Última fecha de compra | Alto | El indicador más importante del estado actual |
+| Número de compras totales | Medio | Distingue compradores únicos de compradores frecuentes |
+| Valor total gastado | Medio | Clientes de alto valor pueden recibir trato diferenciado |
+| Actividad en conversaciones | Bajo | Interacciones sin compra también cuentan como señal |
+
+## Actualización manual del ciclo de vida
+
+Puedes ajustar manualmente el ciclo de vida de cualquier contacto:
+
+<Steps>
+  <Step title="Abrir el perfil del cliente">
+    Ve a **Clientes → Contactos**, busca el contacto y haz clic en su nombre para abrir el perfil.
+  </Step>
+  <Step title="Cambiar la etapa">
+    En la sección **Ciclo de vida**, selecciona la nueva etapa desde el menú desplegable.
+  </Step>
+  <Step title="Agregar una nota de contexto">
+    Si el cambio manual tiene una razón específica (por ejemplo, el cliente canceló su membresía), agrégalo en el campo de notas para que el equipo tenga contexto.
+  </Step>
+</Steps>
+
+<Note>
+  Los cambios manuales al ciclo de vida se guardan pero pueden ser sobreescritos por las actualizaciones automáticas del sistema si se producen compras o períodos de inactividad. Para fijar permanentemente una etapa, usa la etiqueta correspondiente (por ejemplo, `cliente_vip`) en combinación con el ciclo de vida.
+</Note>
+
+## Ciclo de vida y el agente IA
+
+El agente IA adapta su comunicación según la etapa del cliente:
+
+- **Lead**: presentación completa del negocio, proceso de calificación activo.
+- **Prospecto**: enfoque en cerrar la venta, responde objeciones específicas.
+- **Cliente activo**: comunicación más directa, asume familiaridad con el negocio.
+- **Cliente inactivo**: tono cálido que reconoce la relación previa, evita ser repetitivo.
+
+## Ver el ciclo de vida en reportes
+
+Desde **Reportes → Clientes** puedes ver la distribución de tu base de contactos por etapa:
+
+- ¿Cuántos leads has captado este mes?
+- ¿Cuál es tu tasa de conversión de lead a cliente?
+- ¿Cuántos clientes activos tienes?
+- ¿Qué porcentaje de tu cartera está inactiva?
+
+<Tip>
+  Una tasa de conversión de lead a cliente superior al 15% es un buen indicador de que tu agente IA está bien configurado. Si está por debajo del 10%, revisa tu base de conocimiento y el flujo de seguimiento. Si está por encima del 25%, considera si hay oportunidades de escalar tu captación de leads.
+</Tip>

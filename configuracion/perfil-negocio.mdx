@@ -1,0 +1,88 @@
+---
+title: "Perfil del Negocio"
+description: "Configura la información de tu empresa que el agente IA usa para presentar tu negocio a los clientes."
+---
+
+## ¿Qué es el perfil del negocio?
+
+El perfil del negocio es el conjunto de información básica sobre tu empresa que HIVRA usa en múltiples contextos: el agente IA la usa para presentarse a los clientes, las facturas la incluyen como emisor, las confirmaciones de pago la reflejan, y el dashboard la muestra como identidad del tenant.
+
+Mantener este perfil completo y actualizado es uno de los primeros pasos del onboarding y tiene impacto directo en la calidad de la experiencia del cliente.
+
+## Acceder al perfil del negocio
+
+Ve a **Configuración → Perfil del negocio**.
+
+## Información básica
+
+### Nombre del negocio
+El nombre comercial de tu empresa tal como quieres que los clientes lo vean. Este nombre aparece en los mensajes del agente IA, en los mensajes de confirmación de pago y en el encabezado de las facturas de Zoho Books.
+
+Ejemplo: `MOUV Studio`, `Spa Serenity`, `Clínica Dermalaster`
+
+### Número de WhatsApp Business
+El número que tienes configurado en WhatsApp Business API. Este número no se puede cambiar desde HIVRA — si necesitas cambiar el número asociado a tu cuenta, contacta al equipo de soporte.
+
+### Correo electrónico de contacto
+El correo que recibirá las notificaciones del sistema (nuevos pagos, alertas, reportes programados). Puede ser diferente al correo de la cuenta de Zoho Books.
+
+### Sitio web (opcional)
+Si tienes sitio web, inclúyelo aquí. El agente IA puede mencionarlo cuando sea relevante y está disponible como variable en las plantillas de WhatsApp.
+
+## Información fiscal
+
+### RTN (Registro Tributario Nacional)
+Tu número de identificación fiscal en Honduras. Es requerido para la emisión de facturas fiscales vía YaloCobro. Si no tienes RTN registrado, las ventas se facturarán como consumidor final.
+
+### Régimen fiscal
+Selecciona tu régimen: **Régimen General**, **Régimen de Cuota Fija**, u **Otro**. Esta información es usada por el equipo de HIVRA para ayudarte con configuraciones contables.
+
+### Moneda predeterminada
+Selecciona la moneda principal de tu negocio:
+- **HNL** — Lempiras hondureños
+- **USD** — Dólares americanos
+
+Esta configuración afecta cómo se muestran los montos en el inbox, reportes y mensajes al cliente.
+
+### ISV (Impuesto Sobre Ventas)
+Indica si tus ventas están gravadas con ISV. En Honduras, el ISV general es del 15%. Algunos tipos de servicios tienen tasas especiales o están exentos. Consulta con tu contador si tienes dudas.
+
+## Información de sucursales
+
+Si tu negocio tiene múltiples sucursales, puedes gestionarlas en **Configuración → Perfil del negocio → Sucursales**:
+
+- **Nombre de la sucursal**: por ejemplo, "Sede San Pedro Sula", "Sede Tegucigalpa"
+- **Dirección**: dirección física completa
+- **Teléfono**: número de contacto directo
+- **Horario de atención**: horario específico de esta sucursal (puede ser diferente al horario general del negocio)
+
+Las sucursales se usan para:
+- Determinar la ubicación de inscripción en MindBody
+- Clasificar las ventas por sede en los reportes
+- Que el agente IA indique la dirección correcta cuando el cliente pregunta dónde ir
+
+## Logotipo del negocio
+
+Sube el logotipo de tu empresa en formato PNG o SVG (mínimo 200x200 px). El logotipo aparece en:
+- El encabezado del dashboard de HIVRA
+- Los documentos PDF de confirmación de pago
+- Las facturas generadas para clientes (si está configurado en Zoho Books)
+
+## Horario de atención general
+
+Define el horario en el que tu negocio atiende clientes. Este horario se usa para:
+- Las **horas de silencio** (el agente IA no envía mensajes automáticos fuera de este horario)
+- La información que el agente le da a los clientes cuando preguntan por horarios
+- La disponibilidad de citas en Google Calendar
+
+<Note>
+  El horario de atención general aplica a todos los días de la semana por defecto. Si tienes horarios diferentes para sábados y domingos, configúralos por separado en la sección de horarios.
+</Note>
+
+<Warning>
+  Mantener el horario de atención actualizado es importante. Si está mal configurado, el agente IA puede dar información incorrecta a los clientes o enviar mensajes automáticos en horarios inapropiados.
+</Warning>
+
+<Tip>
+  Agrega en el perfil del negocio los datos de redes sociales (Instagram, Facebook, TikTok). Aunque no son campos obligatorios, el agente IA puede mencionarlos cuando un cliente pregunta cómo seguirte en redes.
+</Tip>

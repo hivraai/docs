@@ -1,0 +1,106 @@
+---
+title: "Configuración Inicial"
+description: "Ajustes esenciales que debes completar antes de activar el agente IA en producción."
+---
+
+## Configuración inicial del sistema
+
+Una vez que hayas conectado WhatsApp y cargado tu base de conocimiento, hay una serie de ajustes adicionales que te recomendamos configurar antes de dejar el agente atendiendo clientes reales. Esta guía cubre los más importantes.
+
+## Horarios de atención y horas de silencio
+
+El agente IA puede operar las 24 horas, pero HIVRA incluye controles para respetar tus horarios de negocio y evitar que el sistema envíe mensajes automáticos en horarios inapropiados.
+
+<Steps>
+  <Step title="Configurar horarios de atención">
+    Ve a **Configuración → Agente → Horarios**. Define los días y horas en que tu negocio está abierto. Esta información la usará el agente al responder preguntas sobre disponibilidad.
+  </Step>
+  <Step title="Activar horas de silencio">
+    Las horas de silencio controlan cuándo el sistema puede enviar mensajes automáticos de seguimiento (nurturing). El rango predeterminado es 6:00 AM a 9:00 PM.
+
+    Los mensajes transaccionales — confirmaciones de pago, recordatorios de cita confirmada — siempre se envían independientemente de este horario.
+  </Step>
+</Steps>
+
+<Note>
+  Las horas de silencio afectan únicamente los mensajes de seguimiento automático y los envíos de campaña. Las confirmaciones de pago, alertas al operador y respuestas directas a mensajes del cliente siempre se entregan.
+</Note>
+
+## Configurar moneda e impuestos
+
+<Steps>
+  <Step title="Seleccionar moneda principal">
+    En **Configuración → Perfil de negocio**, selecciona tu moneda: **Lempiras (HNL)** o **Dólares (USD)**. Esta moneda se usará por defecto en todos los enlaces de pago y reportes.
+  </Step>
+  <Step title="Configurar ISV">
+    Si tu negocio aplica el Impuesto Sobre Ventas (ISV) del 15%, actívalo en **Configuración → Perfil → Impuestos**. Una vez activado, el sistema calculará y desglosará el ISV automáticamente en los totales mostrados al cliente.
+  </Step>
+</Steps>
+
+## Configurar métodos de pago
+
+Para poder enviar enlaces de cobro a tus clientes, debes conectar al menos un método de pago:
+
+<Steps>
+  <Step title="Conectar PixelPay">
+    Ve a **Integraciones → PixelPay** e ingresa tus credenciales de comercio. Si aún no tienes cuenta en PixelPay, visita [pixelpay.app](https://pixelpay.app) para registrarte. El proceso de aprobación toma entre 24 y 72 horas.
+  </Step>
+  <Step title="Activar transferencias bancarias">
+    Si también aceptas transferencias bancarias, configura tus datos en **Conocimiento → Datos bancarios**. El agente usará esta información cuando un cliente solicite pagar por transferencia.
+  </Step>
+</Steps>
+
+## Configurar el equipo
+
+Si más de una persona gestionará el inbox de HIVRA, debes agregar a tu equipo:
+
+<Steps>
+  <Step title="Invitar operadores">
+    Ve a **Configuración → Equipo → Invitar**. Ingresa el correo de la persona y selecciona su rol:
+    - **Operador**: puede ver y responder conversaciones, pero no modificar ajustes.
+    - **Administrador**: acceso completo al sistema incluyendo integraciones y reportes.
+  </Step>
+  <Step title="Configurar notificaciones">
+    Cada operador puede configurar sus notificaciones de escritorio y correo. Se recomienda activar notificaciones para conversaciones escaladas y pagos confirmados.
+  </Step>
+</Steps>
+
+## Configurar respuestas rápidas
+
+Las respuestas rápidas son mensajes pre-redactados que los operadores pueden enviar con un solo clic desde el inbox. Útiles para situaciones frecuentes que requieren respuesta humana.
+
+<Steps>
+  <Step title="Crear respuestas rápidas">
+    Ve a **Configuración → Respuestas rápidas** y haz clic en **Nueva respuesta**. Escribe un nombre corto para identificarla y el mensaje completo.
+  </Step>
+  <Step title="Usar en el inbox">
+    Desde cualquier conversación en el inbox, escribe `/` para ver el listado de respuestas rápidas disponibles. Selecciona la que necesitas y se insertará en el campo de texto.
+  </Step>
+</Steps>
+
+## Verificar la configuración antes de activar
+
+Antes de dejar el agente en producción, revisa este checklist:
+
+<AccordionGroup>
+  <Accordion title="✅ Checklist de configuración" icon="check">
+    - [ ] WhatsApp Business conectado y verificado
+    - [ ] Nombre y perfil del negocio completados
+    - [ ] Agente IA configurado con nombre y tono
+    - [ ] Horarios de atención definidos
+    - [ ] Horas de silencio activadas
+    - [ ] Al menos 5 preguntas frecuentes en la base de conocimiento
+    - [ ] Productos o servicios cargados con precio
+    - [ ] Método de pago conectado (PixelPay o transferencia)
+    - [ ] Mensaje de prueba enviado y verificado
+    - [ ] Equipo invitado (si aplica)
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  No actives el agente IA hasta haber completado al menos los puntos de WhatsApp, perfil del negocio y base de conocimiento. Un agente sin información suficiente puede dar respuestas incorrectas que dañen la confianza de tus clientes.
+</Warning>
+
+<Tip>
+  Durante los primeros días, revisa las conversaciones que el agente escaló al operador. Esas son exactamente las preguntas que debes agregar a tu base de conocimiento para reducir escalaciones futuras.
+</Tip>

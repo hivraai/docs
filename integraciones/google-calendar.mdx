@@ -1,0 +1,84 @@
+---
+title: "Integración con Google Calendar"
+description: "Conecta Google Calendar para que tu agente IA ofrezca citas en tiempo real y las agende directamente."
+---
+
+## ¿Qué hace la integración con Google Calendar?
+
+Con Google Calendar conectado, tu agente de WhatsApp puede mostrar los horarios disponibles de tu negocio en tiempo real y agendar citas directamente en el calendario cuando un cliente confirma. Eliminas el ir y venir de mensajes para coordinar disponibilidad.
+
+## Casos de uso
+
+- Agendamiento de citas en clínicas, spas y centros de estética
+- Reservas de sesiones personalizadas en estudios fitness
+- Reuniones de consultoría o asesoría
+- Demos y presentaciones de productos
+
+## Conectar Google Calendar
+
+<Steps>
+  <Step title="Acceder a la integración">
+    En HIVRA, ve a **Integraciones → Google Calendar** y haz clic en **Conectar con Google**.
+  </Step>
+  <Step title="Autorizar el acceso">
+    Serás redirigido a la pantalla de autorización de Google. Selecciona la cuenta de Google que tiene acceso al calendario que deseas usar y haz clic en **Permitir**.
+  </Step>
+  <Step title="Seleccionar el calendario">
+    De regreso en HIVRA, selecciona el calendario específico donde se registrarán las citas. Si tu negocio tiene múltiples calendarios (por recurso, por servicio, o por sucursal), puedes configurar más de uno.
+  </Step>
+  <Step title="Configurar la duración predeterminada">
+    Define la duración predeterminada de cada cita en minutos. Esta es la duración que se usará cuando el agente ofrezca opciones de horario.
+  </Step>
+  <Step title="Configurar buffer entre citas">
+    Define cuántos minutos de pausa dejar entre citas consecutivas. Esto evita que el agente ofrezca un slot inmediatamente después de una cita sin tiempo de preparación.
+  </Step>
+</Steps>
+
+## Cómo funciona el agendamiento
+
+Cuando un cliente solicita una cita por WhatsApp:
+
+1. El agente IA detecta la intención de agendar y pregunta por la fecha o servicio de interés.
+2. HIVRA consulta Google Calendar en tiempo real para obtener los slots disponibles del día o semana solicitada.
+3. El agente presenta las opciones disponibles al cliente (máximo 5 por consulta para no abrumar).
+4. Cuando el cliente confirma un horario, HIVRA crea el evento en Google Calendar automáticamente.
+5. El cliente recibe una confirmación por WhatsApp con la fecha, hora y cualquier instrucción pre-cita configurada.
+6. El evento incluye el nombre del cliente y su número de WhatsApp como referencia para el negocio.
+
+## Recursos y calendarios múltiples
+
+Si tu negocio tiene múltiples recursos que requieren agendamiento independiente (por ejemplo, sala A y sala B, o terapeuta 1 y terapeuta 2), puedes conectar un calendario por recurso:
+
+- Ve a **Integraciones → Google Calendar → Recursos**.
+- Agrega cada calendario con un nombre descriptivo (por ejemplo, "Cabina Masajes", "Sala Reformer 1").
+- El agente presentará los recursos disponibles al cliente antes de mostrar horarios.
+
+<Note>
+  Cada recurso debe tener su propio calendario en Google Calendar. Un calendario compartido para múltiples recursos genera conflictos de disponibilidad.
+</Note>
+
+## Recordatorios de cita
+
+HIVRA puede enviar automáticamente recordatorios de cita por WhatsApp antes del horario agendado:
+
+- **Recordatorio 24 horas antes**: mensaje de recordatorio con detalles de la cita.
+- **Recordatorio 1 hora antes**: mensaje más corto y directo confirmando la cita.
+
+Configura los recordatorios en **Integraciones → Google Calendar → Recordatorios**.
+
+## Cancelaciones y reprogramaciones
+
+Cuando un cliente solicita cancelar o reprogramar una cita por WhatsApp:
+
+1. El agente detecta la intención y consulta si hay una cita próxima en el perfil del cliente.
+2. Si hay una cita, el agente pregunta si desea cancelar o reprogramar.
+3. En cancelación: HIVRA elimina el evento de Google Calendar y envía confirmación.
+4. En reprogramación: el agente ofrece los horarios disponibles alternativos y mueve el evento.
+
+<Warning>
+  Las políticas de cancelación (por ejemplo, penalización por cancelar con menos de 24 horas) deben estar en la base de conocimiento del agente para que las aplique correctamente. La integración solo gestiona el evento en el calendario — no aplica penalizaciones automáticamente.
+</Warning>
+
+<Tip>
+  Crea un evento de "bloqueo" en Google Calendar cuando necesites tiempo no disponible para citas (reuniones internas, mantenimiento, vacaciones). El agente respetará esos bloqueos y no ofrecerá esos horarios a los clientes.
+</Tip>
